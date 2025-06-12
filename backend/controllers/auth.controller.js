@@ -41,10 +41,10 @@ export const signup = async(req,res)=>{
             await newUser.save()
 
             res.status (201).json({
-            _id : newUser._id,
-            fullName : newUser.fullName,
-            username : newUser.username,
-            profilePic: newUser.profilePic
+                _id : newUser._id,
+                fullName : newUser.fullName,
+                username : newUser.username,
+                profilePic: newUser.profilePic
 
         });
         }else {
@@ -64,7 +64,7 @@ export const login = async (req,res)=>{
     try {
         const {username , password} = req.body ;
         const user = await User.findOne({username});
-        const isPasswordCorrect = await bcrypt.compare(password,user.password);
+        const isPasswordCorrect = await bcrypt.compare(password,user?.password || "");
         if (!user || !isPasswordCorrect){
             return res.status(400).json({error:"Invalid username or password"});
         }
@@ -96,5 +96,3 @@ export const logout = async (req,res)=>{
 
 };
 
-// 58 min done 
- 
