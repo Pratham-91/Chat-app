@@ -4,7 +4,7 @@ import GenderCheckbox from './GenderCheckbox';
 import useSignup from '../../hooks/useSignup';
 import { BsEye, BsEyeSlash } from "react-icons/bs";
 
-const SignUp = () => {
+const Signup = () => {
   const [inputs, setInputs] = useState({
     fullName: '',
     username: '',
@@ -135,4 +135,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Signup;
